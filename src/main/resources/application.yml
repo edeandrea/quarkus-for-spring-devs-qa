@@ -1,6 +1,4 @@
 quarkus:
-  live-reload:
-    instrumentation: true
   langchain4j:
     easy-rag:
       path: src/main/resources/documents
@@ -34,3 +32,9 @@ quarkus:
         otlp:
           traces:
             endpoint: http://${quarkus.otel-collector.url}
+
+"%test":
+  quarkus:
+    langchain4j:
+      easy-rag:
+        ingestion-strategy: "off"

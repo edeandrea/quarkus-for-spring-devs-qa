@@ -1,6 +1,7 @@
 package io.erd.qforsqa;
 
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -20,7 +21,7 @@ public class BookQueryResource {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	@RunOnVirtualThread
-	public String askQuestion(@QueryParam("question") @NotEmpty String question) {
+	public String askQuestion(@QueryParam("question") @Valid @NotBlank String question) {
 		return this.queryService.askQuestionAboutBook(question);
 	}
 }
