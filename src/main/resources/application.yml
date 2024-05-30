@@ -1,0 +1,36 @@
+quarkus:
+  live-reload:
+    instrumentation: true
+  langchain4j:
+    easy-rag:
+      path: src/main/resources/documents
+    log-requests: true
+    log-responses: true
+    ollama:
+      chat-model:
+        model-id: mistral
+#      embedding-model:
+#        model-id: mxbai-embed-large
+#        num-predict: 1024
+#        model-id: mistral
+      timeout: 60s
+    redis:
+#      dimension: 1536
+      dimension: 768
+  otel:
+    exporter:
+      otlp:
+        traces:
+          protocol: http/protobuf
+
+"%dev,test":
+  quarkus:
+    micrometer:
+      export:
+        otlp:
+          url: http://${quarkus.otel-collector.url}/v1/metrics
+    otel:
+      exporter:
+        otlp:
+          traces:
+            endpoint: http://${quarkus.otel-collector.url}
