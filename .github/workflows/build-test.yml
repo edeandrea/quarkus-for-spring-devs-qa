@@ -30,6 +30,11 @@ concurrency:
 jobs:
   jvm-build-test:
     runs-on: ubuntu-latest
+    services:
+      ollama:
+        image: ollama/ollama
+        ports:
+          - 11434:11434
     steps:
       - uses: actions/checkout@v4
 
@@ -45,6 +50,11 @@ jobs:
 
   jvm-container-build-test:
     runs-on: ubuntu-latest
+    services:
+      ollama:
+        image: ollama/ollama
+        ports:
+          - 11434:11434
     steps:
       - uses: actions/checkout@v4
 
@@ -60,6 +70,11 @@ jobs:
 
   native-build-test:
     runs-on: ubuntu-latest
+    services:
+      ollama:
+        image: ollama/ollama
+        ports:
+          - 11434:11434
     steps:
       - uses: actions/checkout@v4
 
@@ -90,6 +105,11 @@ jobs:
 
   native-container-build-test:
     runs-on: ubuntu-latest
+    services:
+      ollama:
+        image: ollama/ollama
+        ports:
+          - 11434:11434
     steps:
       - uses: actions/checkout@v4
 
