@@ -6,7 +6,6 @@ import java.util.Map;
 
 import jakarta.ws.rs.core.Response.Status;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -18,7 +17,6 @@ import io.quarkus.test.junit.TestProfile;
 import io.erd.qforsqa.BookQueryResourceIT.ITProfile;
 import io.restassured.http.ContentType;
 
-@Disabled("Need to figure out how to run this on GH actions")
 @QuarkusIntegrationTest
 @TestProfile(ITProfile.class)
 class BookQueryResourceIT {
@@ -38,7 +36,8 @@ class BookQueryResourceIT {
 		@Override
   	public Map<String, String> getConfigOverrides() {
   		return Map.of(
-				"quarkus.vertx.max-event-loop-execute-time", "3m"
+//				"quarkus.vertx.max-event-loop-execute-time", "3m",
+			  "quarkus.langchain4j.easy-rag.ingestion-strategy", "off"
 		  );
   	}
 	}
