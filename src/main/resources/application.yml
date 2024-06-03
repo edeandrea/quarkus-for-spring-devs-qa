@@ -5,7 +5,7 @@ quarkus:
     timeout: 1m
     easy-rag:
       path: src/main/resources/documents
-      max-results: 10
+      max-results: 7
     ollama:
       chat-model:
         model-id: mistral
