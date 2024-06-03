@@ -53,12 +53,6 @@
     <dependency>
       <groupId>io.quarkiverse.langchain4j</groupId>
       <artifactId>quarkus-langchain4j-easy-rag</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>io.quarkiverse.langchain4j</groupId>
-          <artifactId>quarkus-langchain4j-parsers-base</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
