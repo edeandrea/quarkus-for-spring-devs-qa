@@ -17,18 +17,6 @@ quarkus:
   tls:
     trust-all: true
 
-"%dev,test":
-  quarkus:
-    micrometer:
-      export:
-        otlp:
-          url: http://${quarkus.otel-collector.url}/v1/metrics
-    otel:
-      exporter:
-        otlp:
-          traces:
-            endpoint: http://${quarkus.otel-collector.url}
-
 "%test":
   quarkus:
     langchain4j:
